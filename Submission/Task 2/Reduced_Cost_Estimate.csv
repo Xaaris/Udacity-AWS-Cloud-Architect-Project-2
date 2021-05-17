@@ -1,0 +1,19 @@
+﻿Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+Reduced_Cost_Estimate,US East (N. Virginia),,Amazon EC2,0,2884.2,34610.40,USD,"Operating system (Linux), Quantity (150), Pricing strategy (EC2 Instance Savings Plans 1 Year No Upfront), Storage amount (20 GB), Instance type (t3a.medium)"
+Reduced_Cost_Estimate,US East (N. Virginia),,S3 Standard,0,62,744.00,USD,S3 Standard storage (2500 GB per month)
+Reduced_Cost_Estimate,US East (N. Virginia),,Application Load Balancer,0,527.43,6329.16,USD,Number of Application Load Balancers (1)
+Reduced_Cost_Estimate,US East (N. Virginia),,Network Load Balancer,0,235.43,2825.16,USD,"Number of Network Load Balancers (1), Processed bytes per NLB for TCP (50 GB per hour), Average number of new TCP connections (500 per second), Average TCP connection duration (20 seconds)"
+Reduced_Cost_Estimate,US East (N. Virginia),,Amazon Virtual Private Cloud (VPC),0,257.85,3094.20,USD,Number of NAT Gateways (1)
+Reduced_Cost_Estimate,US East (N. Virginia),Main DB,Amazon RDS for MySQL,0,1596.38,19156.56,USD,"Storage for each RDS instance (General Purpose SSD (gp2)), Storage amount (4 TB), Quantity (1), Instance type (db.m1.medium), Deployment option (Multi-AZ), Pricing strategy (OnDemand), Additional backup storage (5 TB)"
+Reduced_Cost_Estimate,US East (N. Virginia),,Amazon Route 53,0,20.5,246.00,USD,Hosted Zones (1)
+Reduced_Cost_Estimate,US East (N. Virginia),,Amazon Cognito,0,0.25,3.00,USD,"Advanced security features (Enabled), Number of monthly active users (MAU) (5)"
+Reduced_Cost_Estimate,US East (N. Virginia),,Amazon API Gateway,0,50,600.00,USD,"HTTP API requests units (millions), Average size of each request (34 KB), REST API request units (millions), Cache memory size (GB) (None), WebSocket message units (thousands), Average message size (32 KB), Requests (50 per month)"
+Reduced_Cost_Estimate,US East (N. Virginia),,AWS Lambda,0,35.8,429.60,USD,Number of requests (5000000)
+Reduced_Cost_Estimate,US East (N. Virginia),,DynamoDB on-demand capacity,0,250,3000.00,USD,"Average item size (all attributes) (128 KB), Data storage size (1000 GB)"
+Reduced_Cost_Estimate,US East (N. Virginia),Read replica,Amazon RDS for MySQL,0,554.99,6659.88,USD,"Storage for each RDS instance (General Purpose SSD (gp2)), Storage amount (4 TB), Quantity (1), Instance type (db.m1.medium), Deployment option (Single-AZ), Pricing strategy (OnDemand)"
+
+
+
+Changes and reasoning:
+As the RDS and EC2 instances have by far the highest costs, they also had the biggest potential for savings.
+I therefore reduced the RDS instance size from a db.m1.large to a db.m1.medium (for the main DB as well as the replica) and reduced the number of EC2 instances from 200 to 150 in the hopes that the service will still be able to perform adequately.
